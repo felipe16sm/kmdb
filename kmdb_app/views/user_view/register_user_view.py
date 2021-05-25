@@ -11,9 +11,10 @@ class RegisterUserView(APIView):
         user = UserServices.find_user_by_username(request.data['username'])
         
         if user:
-            return Response({"error":"Este usuário já existe"}, status=status.HTTP_409_CONFLICT)
+            return Response({'username': ['A user with that username already exists.']}, status=status.HTTP_400_BAD_REQUEST)
 
         serializer = UserSerializer(data=request.data)
+        
         if not serializer.is_valid():
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 

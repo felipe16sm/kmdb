@@ -1,3 +1,4 @@
 from .user_service import UserServices
-from .movie_services import MovieServices
-from .genre_services import GenreServices
+from .movie_service import MovieServices
+from .genre_service import GenreServices
+from .review_service import ReviewServices

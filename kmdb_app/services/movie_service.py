@@ -9,6 +9,11 @@ class MovieServices():
     @staticmethod
     def get_movie(movie_id):
         return get_object_or_404(Movie, id=movie_id)
+
+    @staticmethod
+    def delete_movie(movie_id):
+        movie = MovieServices.get_movie(movie_id)
+        return movie.delete()
     
     @staticmethod
     def list_all_movies():

@@ -12,11 +12,8 @@ class UserSerializer(serializers.Serializer):
 
 class ShowUserSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
-    username = serializers.CharField()
     first_name = serializers.CharField()
     last_name = serializers.CharField()
-    is_superuser = serializers.BooleanField()
-    is_staff = serializers.BooleanField()
 
 class CredentialSerializer(serializers.Serializer):
     username = serializers.CharField()

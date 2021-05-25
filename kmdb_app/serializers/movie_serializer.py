@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from . import GenreSerializer
+from . import GenreSerializer, ReviewSerializer, CommentSerializer
 
 class CreateMovieSerializer(serializers.Serializer):
     title = serializers.CharField()
@@ -17,3 +17,5 @@ class ReadMovieSerializer(serializers.Serializer):
     launch = serializers.CharField(read_only=True)
     classification = serializers.IntegerField(read_only=True)
     synopsis = serializers.CharField(read_only=True)
+    criticism_set = ReviewSerializer(read_only=True, many=True)
+    comment_set = CommentSerializer(read_only=True, many=True)

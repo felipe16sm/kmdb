@@ -1,0 +1,2 @@
+from .comment_permission import CreateCommentPermission
+from .movie_permission import MoviePermission

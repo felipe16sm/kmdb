@@ -1,18 +1,22 @@
-from rest_framework.fields import DictField
 from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.response import Response
-from rest_framework.permissions import DjangoModelPermissions
+from kmdb_app.permissions import MoviePermission
 from rest_framework.authentication import TokenAuthentication
 from kmdb_app.serializers import  CreateMovieSerializer, ReadMovieSerializer
 from kmdb_app.models import Movie
-from kmdb_app.services import MovieServices,GenreServices
+from kmdb_app.services import MovieServices,GenreServices, ReviewServices
 import ipdb
 
 class MovieView(APIView):
     authentication_classes = [TokenAuthentication]
-    permission_classes = [DjangoModelPermissions]
+    permission_classes = [MoviePermission]
     queryset = Movie.objects.all()
+
+    def get(self, request):
+        movies = MovieServices.list_all_movies()
+
+        return Response([ReadMovieSerializer(movie).data for movie in movies],status=status.HTTP_200_OK)
 
     def post(self, request):
         serializer = CreateMovieSerializer(data=request.data)
@@ -33,9 +37,8 @@ class MovieView(APIView):
                 genre = GenreServices.get_genre_by_name(genre['name'])
             movie.genres.add(genre)
 
-        
+        movie.criticism_set = []
 
-        # ipdb.set_trace()
         serializer = ReadMovieSerializer(movie)
             
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
