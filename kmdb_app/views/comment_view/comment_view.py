@@ -4,7 +4,7 @@ from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.authentication import TokenAuthentication
-from kmdb_app.permissions import CreateCommentPermission
+from kmdb_app.permissions import CommentPermission
 from kmdb_app.serializers import  CommentSerializer, UpdateCommentSerializer
 from kmdb_app.models import Comment, Movie
 from kmdb_app.services import MovieServices
@@ -12,7 +12,7 @@ import ipdb
 
 class CommentView(APIView):
     authentication_classes = [TokenAuthentication]
-    permission_classes = [CreateCommentPermission]
+    permission_classes = [CommentPermission]
     queryset = Comment.objects.all()
 
     def post(self, request, movie_id):

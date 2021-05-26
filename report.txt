@@ -39,8 +39,8 @@ test_create_comment_with_invalid_movie_id (kmdb_app.tests.TestCommentReviewView)
 test_user_can_change_a_comment_on_the_movie (kmdb_app.tests.TestCommentReviewView) ... ok
 test_user_can_create_comment (kmdb_app.tests.TestCommentReviewView) ... ok
 test_user_cannot_change_a_comment_on_the_movie_that_did_not_comment (kmdb_app.tests.TestCommentReviewView) ... ok
-test_create_review (kmdb_app.tests.TestCriticismReviewView) ... FAIL
-test_update_review (kmdb_app.tests.TestCriticismReviewView) ... FAIL
+test_create_review (kmdb_app.tests.TestCriticismReviewView) ... ok
+test_update_review (kmdb_app.tests.TestCriticismReviewView) ... ok
 test_admin_can_delete_movie (kmdb_app.tests.TestMovieRetrieveDestroyView) ... ok
 test_anonymous_can_filter_movies (kmdb_app.tests.TestMovieRetrieveDestroyView) ... ok
 test_anonymous_cannot_delete_movies (kmdb_app.tests.TestMovieRetrieveDestroyView) ... ok
@@ -53,31 +53,15 @@ test_genre_or_classification_cannot_repet (kmdb_app.tests.TestMovieView) ... ok
 test_output_format_data (kmdb_app.tests.TestMovieView) ... ok
 
 ======================================================================
-FAIL: test_create_review (kmdb_app.tests.TestCriticismReviewView)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/home/felipe/projetos-kenzie/Q4/sprint2B/kmdb/kmdb_app/tests.py", line 951, in test_create_review
-    self.assertEqual(response.status_code, 404)
-AssertionError: 403 != 404
-
-======================================================================
-FAIL: test_update_review (kmdb_app.tests.TestCriticismReviewView)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/home/felipe/projetos-kenzie/Q4/sprint2B/kmdb/kmdb_app/tests.py", line 1074, in test_update_review
-    self.assertEqual(response.status_code, 200)
-AssertionError: 403 != 200
-
-======================================================================
 FAIL: test_filter_movies_with_the_filter_request (kmdb_app.tests.TestMovieView)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/home/felipe/projetos-kenzie/Q4/sprint2B/kmdb/kmdb_app/tests.py", line 198, in test_filter_movies_with_the_filter_request
+  File "/home/felipe/projetos-kenzie/Q4/sprint2B/kmdb/kmdb_app/tests.py", line 199, in test_filter_movies_with_the_filter_request
     self.assertEqual(len(filter_movies.json()), 2)
 AssertionError: 3 != 2
 
 ----------------------------------------------------------------------
-Ran 22 tests in 5.119s
+Ran 22 tests in 5.336s
 
-FAILED (failures=3)
+FAILED (failures=1)
 Destroying test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...

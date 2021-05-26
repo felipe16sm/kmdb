@@ -1,4 +1,5 @@
 from django.test import TestCase
+import ipdb
 from rest_framework.test import APIClient
 import json
 
@@ -1079,7 +1080,7 @@ class TestCriticismReviewView(TestCase):
             "/api/movies/2/review/", self.review_data_2, format="json"
         )
         self.assertEqual(response.status_code, 404)
-
+        
         # critic user trying to update review when movie doesnt exists
         response = client.put(
             "/api/movies/3/review/", self.review_data_2, format="json"

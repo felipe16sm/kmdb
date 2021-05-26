@@ -5,7 +5,7 @@ from kmdb_app.permissions import MoviePermission
 from rest_framework.authentication import TokenAuthentication
 from kmdb_app.serializers import  CreateMovieSerializer, ReadMovieSerializer
 from kmdb_app.models import Movie
-from kmdb_app.services import MovieServices,GenreServices, ReviewServices
+from kmdb_app.services import MovieServices,GenreServices
 import ipdb
 
 class MovieView(APIView):
@@ -36,8 +36,6 @@ class MovieView(APIView):
             else:
                 genre = GenreServices.get_genre_by_name(genre['name'])
             movie.genres.add(genre)
-
-        movie.criticism_set = []
 
         serializer = ReadMovieSerializer(movie)
             
