@@ -2,4 +2,4 @@ from .user_serializer import UserSerializer, ShowUserSerializer, CredentialSeria
 from .genre_serializer import GenreSerializer
 from .comments_serializer import CommentSerializer, UpdateCommentSerializer
 from .criticism_serializer import CriticismSerializer
-from .movie_serializer import CreateMovieSerializer, ReadMovieSerializer
+from .movie_serializer import CreateMovieSerializer, ReadMovieSerializer, MovieSerializer
