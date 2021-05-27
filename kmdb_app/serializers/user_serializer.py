@@ -1,20 +1,27 @@
 from rest_framework import serializers
+from kmdb_app.models import User
 
 
-class UserSerializer(serializers.Serializer):
+class UserSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
-    username = serializers.CharField()
     password = serializers.CharField(write_only=True)
-    first_name = serializers.CharField()
-    last_name = serializers.CharField()
-    is_superuser = serializers.BooleanField()
-    is_staff = serializers.BooleanField()
 
-class ShowUserSerializer(serializers.Serializer):
+    class Meta:
+        model = User
+        fields = ['id','username', 'password', 'first_name', 'last_name', 'is_superuser', 'is_staff']
+
+class ShowUserSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
-    first_name = serializers.CharField()
-    last_name = serializers.CharField()
 
-class CredentialSerializer(serializers.Serializer):
+    class Meta:
+        model = User
+        fields = ['id', 'first_name', 'last_name']
+
+
+class CredentialSerializer(serializers.ModelSerializer):
     username = serializers.CharField()
     password = serializers.CharField()
+
+    class Meta:
+        model = User
+        fields = ['username', 'password']

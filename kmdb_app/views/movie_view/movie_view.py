@@ -24,6 +24,3 @@ class MovieView(GenericAPIView,
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
 
-    def put(self, request, *args, **kwargs):
-        return self.partial_update(request, *args, **kwargs)
-
