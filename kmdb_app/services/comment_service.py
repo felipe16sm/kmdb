@@ -13,8 +13,8 @@ class CommentServices():
         return comment
 
     @staticmethod
-    def update_comment(comment_data):
-        comment = CommentServices.get_comment_by_id(comment_data['comment_id'])
+    def update_comment(comment_data, comment_id):
+        comment = CommentServices.get_comment_by_id(comment_id)
         comment.comment = comment_data['comment']
         comment.save()
         return comment
