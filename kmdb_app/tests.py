@@ -997,7 +997,7 @@ class TestCriticismReviewView(TestCase):
             "review": "Muito fraco",
             "spoilers": False,
         }
-
+        
         self.assertEqual(response.status_code, 201)
         self.assertEqual(response.json(), expected_review_response)
 
