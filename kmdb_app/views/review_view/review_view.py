@@ -2,7 +2,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.authentication import TokenAuthentication
 from kmdb_app.permissions import ReviewPermission
-from rest_framework.mixins import ListModelMixin, UpdateModelMixin, CreateModelMixin
+from rest_framework.mixins import UpdateModelMixin, CreateModelMixin
 from rest_framework.generics import GenericAPIView
 from kmdb_app.serializers import  CriticismSerializer
 from kmdb_app.models import  Criticism
@@ -10,7 +10,6 @@ from kmdb_app.services import MovieServices, CriticismServices
 import ipdb
 
 class ReviewView(GenericAPIView,
-                                   ListModelMixin,
                                    CreateModelMixin,
                                    UpdateModelMixin):
     authentication_classes = [TokenAuthentication]

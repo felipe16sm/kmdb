@@ -1,10 +1,8 @@
-from kmdb_app import serializers
 from kmdb_app.services.comment_service import CommentServices
-from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.authentication import TokenAuthentication
-from rest_framework.mixins import ListModelMixin, UpdateModelMixin, CreateModelMixin
+from rest_framework.mixins import UpdateModelMixin, CreateModelMixin
 from rest_framework.generics import GenericAPIView
 from kmdb_app.permissions import CommentPermission
 from kmdb_app.serializers import  CommentSerializer
@@ -13,7 +11,6 @@ from kmdb_app.services import MovieServices
 import ipdb
 
 class CommentView(GenericAPIView,
-                                   ListModelMixin,
                                    CreateModelMixin,
                                    UpdateModelMixin):
     authentication_classes = [TokenAuthentication]

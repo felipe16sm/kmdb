@@ -48,20 +48,12 @@ test_anonymous_cannot_filter_movies_with_the_invalid_movie_id (kmdb_app.tests.Te
 test_user_or_critic_cannot_delete_movies (kmdb_app.tests.TestMovieRetrieveDestroyView) ... ok
 test_admin_can_create_movie (kmdb_app.tests.TestMovieView) ... ok
 test_critic_or_user_cannot_create_movie (kmdb_app.tests.TestMovieView) ... ok
-test_filter_movies_with_the_filter_request (kmdb_app.tests.TestMovieView) ... FAIL
+test_filter_movies_with_the_filter_request (kmdb_app.tests.TestMovieView) ... ok
 test_genre_or_classification_cannot_repet (kmdb_app.tests.TestMovieView) ... ok
 test_output_format_data (kmdb_app.tests.TestMovieView) ... ok
 
-======================================================================
-FAIL: test_filter_movies_with_the_filter_request (kmdb_app.tests.TestMovieView)
 ----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/home/felipe/projetos-kenzie/Q4/sprint2B/kmdb/kmdb_app/tests.py", line 199, in test_filter_movies_with_the_filter_request
-    self.assertEqual(len(filter_movies.json()), 2)
-AssertionError: 3 != 2
+Ran 22 tests in 5.555s
 
-----------------------------------------------------------------------
-Ran 22 tests in 5.397s
-
-FAILED (failures=1)
+OK
 Destroying test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...

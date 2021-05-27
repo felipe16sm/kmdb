@@ -11,7 +11,6 @@ import ipdb
 
 class MovieSingleView(GenericAPIView,
                                    ListModelMixin,
-                                   CreateModelMixin,
                                    UpdateModelMixin):
     authentication_classes = [TokenAuthentication]
     permission_classes = [MoviePermission]
