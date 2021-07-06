@@ -44,9 +44,10 @@ TEST=TEST python manage.py test -v 2 &> report.txt
 
 # Create a user
 
-<h2> // REQUEST </h2>
-
 ```sh
+// REQUEST
+
+
 {
     "username": "user",
     "password": "1234",
@@ -57,9 +58,9 @@ TEST=TEST python manage.py test -v 2 &> report.txt
 }
 ```
 
-<h2> // RESPONSE STATUS -> HTTP 201 CREATED </h2>
-
 ```sh
+// RESPONSE STATUS -> HTTP 201 CREATED
+
 {
     "id": 1,
     "username": "user",
@@ -72,9 +73,9 @@ TEST=TEST python manage.py test -v 2 &> report.txt
 
 # Create a critic
 
-# // REQUEST
-
 ```sh
+// REQUEST
+
 {
     "username": "critic",
     "password": "1234",
@@ -85,9 +86,9 @@ TEST=TEST python manage.py test -v 2 &> report.txt
 }
 ```
 
-# // RESPONSE STATUS -> HTTP 201 CREATED
-
 ```sh
+// RESPONSE STATUS -> HTTP 201 CREATED
+
 {
     "id": 2,
     "username": "critic",
@@ -100,9 +101,9 @@ TEST=TEST python manage.py test -v 2 &> report.txt
 
 # Create a administrator
 
-# // REQUEST
-
 ```sh
+// REQUEST
+
 {
     "username": "admin",
     "password": "1234",
@@ -113,9 +114,9 @@ TEST=TEST python manage.py test -v 2 &> report.txt
 }
 ```
 
-# // RESPONSE STATUS -> HTTP 201 CREATED
-
 ```sh
+// RESPONSE STATUS -> HTTP 201 CREATED
+
 {
     "id": 3,
     "username": "admin",
@@ -130,18 +131,19 @@ TEST=TEST python manage.py test -v 2 &> report.txt
 
 # POST /login/ - Login route (must return token)
 
-# // REQUEST
-
 ```sh
+// REQUEST
+
 {
     "username": "critic",
     "password": "1234"
 }
 ```
 
-# // RESPONSE STATUS -> HTTP 200 OK
-
 ```sh
+// RESPONSE STATUS -> HTTP 200 OK
+
+
 {
     "token": "dfd384673e9127213de6116ca33257ce4aa203cf"
 }
@@ -151,11 +153,11 @@ TEST=TEST python manage.py test -v 2 &> report.txt
 
 # POST /movies/ - Create a new movie
 
-# // REQUEST
-
-# // Header -> Authorization: Token <token-do-admin>
-
 ```sh
+// REQUEST
+
+// Header -> Authorization: Token <token-do-admin>
+
 {
     "title": "O Poderoso Chefão",
     "duration": "175m",
@@ -169,9 +171,9 @@ TEST=TEST python manage.py test -v 2 &> report.txt
 }
 ```
 
-# // RESPONSE STATUS -> HTTP 201 CREATED
-
 ```sh
+// RESPONSE STATUS -> HTTP 201 CREATED
+
 {
     "id": 1,
     "title": "O Poderoso Chefão",
@@ -196,66 +198,68 @@ TEST=TEST python manage.py test -v 2 &> report.txt
 
 # GET /movies/ - List all registered movies
 
-# // RESPONSE STATUS 200 OK
-
 ```sh
+// RESPONSE STATUS 200 OK
+
 [
-{
-    "id": 1,
-    "title": "O Poderoso Chefão",
-    "duration": "175m",
-    "genres": [
-        {
-            "id": 1,
-            "name": "Crime"
-        },
-        {
-            "id": 2,
-            "name": "Drama"
-        }
-    ],
-    "launch": "1972-09-10",
-    "classification": 14,
-    "synopsis": "Don Vito Corleone (Marlon Brando) é o chefe de uma 'família' de Nova York que está feliz, pois Connie (Talia Shire), sua filha,se casou com Carlo (Gianni Russo). Por ser seu padrinho Vito foi procurar o líder da banda e ofereceu 10 mil dólares para deixar Johnny sair, mas teve o pedido recusado.",
-    "criticism_set": [],
-    "comment_set": []
-},
-{
-    "id": 2,
-    "title": "Um Sonho de Liberdade",
-    "duration": "142m",
-    "genres": [
-        {
-            "id": 2,
-            "name": "Drama"
-        },
-        {
-            "id": 3,
-            "name": "Ficção científica"
-        }
-    ],
-    "launch": "1994-10-14",
-    "classification": 16,
-    "synopsis": "Andy Dufresne é condenado a duas prisões perpétuas consecutivas pelas mortes de sua esposa e de seu amante. Porém, só Andy sabe que ele não cometeu os crimes. No presídio, durante dezenove anos, ele faz amizade com Red, sofre as brutalidades da vida na cadeia, se adapta, ajuda os carcereiros, etc."
-    "criticism_set": [],
-    "comment_set": []
-}
+    {
+        "id": 1,
+        "title": "O Poderoso Chefão",
+        "duration": "175m",
+        "genres": [
+            {
+                "id": 1,
+                "name": "Crime"
+            },
+            {
+                "id": 2,
+                "name": "Drama"
+            }
+        ],
+        "launch": "1972-09-10",
+        "classification": 14,
+        "synopsis": "Don Vito Corleone (Marlon Brando) é o chefe de uma 'família' de Nova York que está feliz, pois Connie (Talia Shire), sua filha,se casou com Carlo (Gianni Russo). Por ser seu padrinho Vito foi procurar o líder da banda e ofereceu 10 mil dólares para deixar Johnny sair, mas teve o pedido recusado.",
+        "criticism_set": [],
+        "comment_set": []
+    },
+    {
+        "id": 2,
+        "title": "Um Sonho de Liberdade",
+        "duration": "142m",
+        "genres": [
+            {
+                "id": 2,
+                "name": "Drama"
+            },
+            {
+                "id": 3,
+                "name": "Ficção científica"
+            }
+        ],
+        "launch": "1994-10-14",
+        "classification": 16,
+        "synopsis": "Andy Dufresne é condenado a duas prisões perpétuas consecutivas pelas mortes de sua esposa e de seu amante. Porém, só Andy sabe que ele não cometeu os crimes. No presídio, durante dezenove anos, ele faz amizade com Red, sofre as brutalidades da vida na cadeia, se adapta, ajuda os carcereiros, etc."
+        "criticism_set": [],
+        "comment_set": []
+    }
 ]
 ```
 
 # GET /movies/ - List all movies according to a filter in request
 
-# // REQUEST
-
 ```sh
+// REQUEST
+
+
 {
     "title": "liberdade" // Campo obrigatório
 }
 ```
 
-# // RESPONSE STATUS 200 OK
-
 ```sh
+// RESPONSE STATUS 200 OK
+
+
 [
     {
         "id": 2,
@@ -302,9 +306,9 @@ TEST=TEST python manage.py test -v 2 &> report.txt
 
 # GET /movies/<int: movie_id>/ - Search a movie using movie id
 
-# // RESPONSE STATUS -> HTTP 200 OK
-
 ```sh
+// RESPONSE STATUS -> HTTP 200 OK
+
 {
     "id": 9,
     "title": "Nomadland",
@@ -362,11 +366,11 @@ TEST=TEST python manage.py test -v 2 &> report.txt
 
 # POST /movies/<int:movie_id>/review/ - Create a critic review
 
-# // REQUEST
-
-# // Header -> Authorization: Token <token-de-critic>
-
 ```sh
+// REQUEST
+
+// Header -> Authorization: Token <token-de-critic>
+
 {
     "stars": 7,
     "review": "Nomadland podia ter dado muito errado. Podia ser dramático demais, monótono demais ou opaco demais. Felizmente, o que vemos é algo singelo, pois a direção de Zhao (que também edita, assina e produz o longa) não ignora a frieza da realidade, mas sabe encontrar a magia da naturalidade. Sim, rimei sem querer e parece meio poético, mas é assim que o filme funciona mesmo. Viva Chloé Zhao - para sempre! Logo, os holofotes voltaram para esta obra independente da cineasta que, sinceramente, merece toda a atenção que recebeu.",
@@ -374,9 +378,10 @@ TEST=TEST python manage.py test -v 2 &> report.txt
 }
 ```
 
-# // RESPONSE STATUS 201 CREATED
-
 ```sh
+// RESPONSE STATUS 201 CREATED
+
+
 {
     "id": 39,
     "critic": {
@@ -392,13 +397,13 @@ TEST=TEST python manage.py test -v 2 &> report.txt
 
 # PUT /movies/<int:movie_id>/review/ - Update a critic
 
-# // REQUEST
-
-# // Header -> Authorization: Token <token-do-critic>
-
-# // All fields are required
-
 ```sh
+// REQUEST
+
+// Header -> Authorization: Token <token-do-critic>
+
+// All fields are required
+
 {
     "stars": 8,
     "review": "Nomadland apresenta, portanto, fortes credenciais para ser favorito ao Oscar 2021 e Chloé Zhao tem a chance de fazer história como a segunda mulher (apenas) a vencer o maior prêmio do cinema como diretora. Filme com cara de premiação, mas, ainda assim, com mensagens importantes para todos.",
@@ -406,9 +411,9 @@ TEST=TEST python manage.py test -v 2 &> report.txt
 }
 ```
 
-# //RESPONSE
-
 ```sh
+//RESPONSE
+
 {
     "id": 39,
     "critic": {
@@ -426,19 +431,20 @@ TEST=TEST python manage.py test -v 2 &> report.txt
 
 # POST /movies/<int:movie_id>/comments/ - User comment
 
-# // REQUEST
-
-# // Header -> Authorization: Token <token-do-user>
-
 ```sh
+// REQUEST
+
+// Header -> Authorization: Token <token-do-user>
+
+
 {
     "comment": "Lindo filme. Com certeza assistam.",
 }
 ```
 
-# // RESPONSE STATUS -> HTTP 201 CREATED
-
 ```sh
+// RESPONSE STATUS -> HTTP 201 CREATED
+
 {
     "id": 1,
     "user": {
@@ -452,20 +458,20 @@ TEST=TEST python manage.py test -v 2 &> report.txt
 
 # PUT /movies/<int:movie_id>/comments/ - Update an user comment
 
-# // REQUEST
-
-# // Header -> Authorization: Token <token-do-user>
-
 ```sh
+// REQUEST
+
+// Header -> Authorization: Token <token-do-user>
+
 {
     "comment_id": 1,
     "comment": "Lindo, nos faz refletir sobre a vida, os anos, envelhecer. Vale a pena assistir"
 }
 ```
 
-# // RESPONSE STATUS 200 OK
-
 ```sh
+// RESPONSE STATUS 200 OK
+
 {
     "id": 11,
     "user": {
